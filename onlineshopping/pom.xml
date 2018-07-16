@@ -14,6 +14,13 @@
 	</properties>
 
 	<dependencies>
+		<!-- link backend -->
+		<dependency>
+			<groupId>net.danoe</groupId>
+			<artifactId>shoppingbackend</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
 		<!-- Java EE -->
 		<!-- https://mvnrepository.com/artifact/javax/javaee-api -->
 		<dependency>
