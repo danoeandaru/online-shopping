@@ -19,10 +19,18 @@
 <meta name="description" content="Online Shopping Website Using Spring MVC and Hibernate">
 <meta name="author" content="Danu Andaru">
 
-<title>Online Shopping</title>
+<title>Online Shopping - ${title}</title>
+
+<script>
+	window.menu = '${title}';
+	window.contextRoot = '${contextRoot}'
+</script>
 
 	<!-- Bootstrap Core CSS -->
 	<link href="${css}/bootstrap.min.css" rel="stylesheet">
+	
+	<!-- Bootstrap Readable CSS -->
+	<link href="${css}/bootstrap-readable-theme.css" rel="stylesheet">
 	
 	<!-- Custom CSS -->
 	<link href="${css}/myapp.css" rel="stylesheet">
@@ -33,72 +41,36 @@
 
 	<div class="wrapper">	
 		<!-- nav  -->
-		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-            	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="${contextRoot}/home">Online Shopping</a>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li id="about">
-                        <a href="#">About</a>
-                    </li>
-
-                    <li id="contact">
-                        <a href="#">Contact</a>
-                    </li>
-                    
-                    <li id="listProducts">
-                        <a href="#">View Products</a>
-                    </li>
-                </ul>                
-            </div>
-        </div>
-    	</nav>
+		<%@include file="./shared/navbar.jsp" %>
 		
 		<!-- Page Content -->
-	    <div class="container">
-	      <div class="row">
-	        <div class="col-lg-3">
-	          <h1 class="my-4">Shop Name</h1>
-	          <div class="list-group">
-	            <a href="#" class="list-group-item">Category 1</a>
-	            <a href="#" class="list-group-item">Category 2</a>
-	            <a href="#" class="list-group-item">Category 3</a>
-	          </div>
-	        </div>
-	
-	        <div class="col-lg-9">
-				<p>Content</p>
-		
-	        </div>
-	      </div>
+		<div class="content">
+			<c:if test="${userClickHome == true}">
+				<%@include file="home.jsp" %>
+			</c:if>
+			
+			<!-- User click about -->
+			<c:if test="${userClickAbout == true}">
+				<%@include file="about.jsp" %>
+			</c:if>
+			
+			<!-- User click contact -->
+			<c:if test="${userClickContact == true}">
+				<%@include file="contact.jsp" %>
+			</c:if>
 	    </div>
 		
 		<!-- footer  -->
-		<div class="container footer">
-	    <hr>
-	        <footer>
-	            <div class="row">
-	                <div class="col-lg-12">
-	                    <p>Copyright &copy; Online Shopping 2018 - Designed and Developed By Danu Andaru</p>
-	                </div>
-	            </div>
-	        </footer>
-	    </div>
+		<%@include file="./shared/footer.jsp" %>
 		
     	<!-- jQuery -->
 		<script src="${js}/jquery.js"></script>
 		
 		<!-- Bootstrap Core JavaScript -->
 		<script src="${js}/bootstrap.min.js"></script>
+		
+		<!-- Self coded JavaScript -->
+		<script src="${js}/myapp.js"></script>
 	</div>
 </body>
 
